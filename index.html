@@ -1,0 +1,32 @@
+<html>
+  <body>
+    <label for="origin">Your text:</label>
+    <textarea id="origin" name="w3review" rows="4" cols="50">
+    </textarea>
+    <button type="button" onclick="mimify()">Mimify!</button>
+    <br>
+    <br>
+    <div id="result">
+    </div>
+    <button type="button" onclick="copy()">Copy me!</button>
+  </body>
+
+  <script>
+    function mimify(){
+	var vowels = ["aeou", "AEOU", "áéóú", "ÁÉÓÚ"];
+	var ies = "iIíÍ";
+	text = document.getElementById("origin").value;
+	for (n in vowels) {
+	    for (l of vowels[n]) {
+		text=text.replaceAll(l, ies[n]);
+	    }
+	}
+	document.getElementById("result").innerText = text;
+    }
+    function copy(){
+	var copyText = document.getElementById("result").innerText;
+	navigator.clipboard.writeText(copyText);
+	alert("Text copied!");
+    }
+  </script>  
+</html>
