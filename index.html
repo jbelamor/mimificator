@@ -1,7 +1,7 @@
 <html>
   <body>
     <label for="origin">Your text:</label>
-    <textarea id="origin" name="w3review" rows="4" cols="50">
+    <textarea id="origin" name="" rows="4" cols="50">
     </textarea>
     <button type="button" onclick="mimify()">Mimify!</button>
     <br>
@@ -24,9 +24,11 @@
 	document.getElementById("result").innerText = text;
     }
     function copy(){
-	var copyText = document.getElementById("result").innerText;
-	navigator.clipboard.writeText(copyText);
-	alert("Text copied!");
+  	var copyText = document.getElementById("origin");
+	copyText.select();
+  	copyText.setSelectionRange(0, 99999); 
+	navigator.clipboard.writeText(copyText.value);
+  	alert("Copied the text: " + copyText.value);
     }
   </script>  
 </html>
